@@ -2,7 +2,7 @@
   <input type="checkbox" class="reditus__checkbox">
 </template>
 
-<style lang="sass">
+<style lang="sass" scoped>
 .reditus
   &__checkbox
     appearance: none
