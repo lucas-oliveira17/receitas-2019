@@ -76,7 +76,7 @@ export default {
     align-items: center
 
   &__enterwith
-    font-family: 'Lato'
+    font-family: 'Roboto'
     margin-bottom: 30px
 
 .right
@@ -98,7 +98,7 @@ export default {
       flex-direction: column
 
   &__message
-      font-family: 'Lato'
+      font-family: 'Roboto'
 
       &_signin
         font-weight: 800
@@ -127,7 +127,7 @@ export default {
     display: flex
     justify-content: space-between
     margin-top: 30px
-    font-family: 'Lato'
+    font-family: 'Roboto'
 
   &__button
     margin-right: auto
@@ -137,7 +137,7 @@ export default {
     padding: 10px 60px
     font-size: 15px
     color: #F0F0F0
-    font-family: 'Lato'
+    font-family: 'Roboto'
     font-weight: bold
     border-radius: 3px
     background-color: rgb(206, 4, 4)
@@ -147,7 +147,7 @@ export default {
       background-color: rgba(160, 1, 1, 1)
 
   &__label
-    font-family: 'Lato';
+    font-family: 'Roboto';
     margin-bottom: 10px;
     font-size: 14px;
     font-weight: bold
@@ -164,7 +164,7 @@ export default {
     font-size: 15px
     outline: 0
     font-weight: bold
-    font-family: 'Lato'
+    font-family: 'Roboto'
     background-color: transparent
     border: 2px solid #c1c1c1
     color: #414141

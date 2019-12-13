@@ -1,11 +1,15 @@
 <template>
-  <span class="reditus__logo">reditus</span>
+  <span v-bind:style="{ backgroundColor: logoBackgroundColor, color: color }" class="reditus__logo">reditus</span>
 </template>
 
 <script>
 
 export default {
-  name: 'ReditusLogo'
+  name: 'ReditusLogo',
+  props: {
+    logoBackgroundColor: String,
+    color: String
+  }
 }
 </script>
 
@@ -15,13 +19,11 @@ $reditus-lightred: #ce0404
 
 .reditus
   &__logo
-    margin-left: 20px
     color: #F0F0F0
     font-size: 2vw
     color: $reditus-darkred
-    padding: 0px 9px
+    padding: 0px 9px 2px 9px
     letter-spacing: 2px;
-    font-size: 2vw
     font-family: 'Maven Pro'
     background-color: #F0F0F0
 </style>

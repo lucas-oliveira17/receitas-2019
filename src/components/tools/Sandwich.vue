@@ -17,8 +17,12 @@ export default {
   &__line
     width: 20px
     height: 2px
-    margin-top: 5px
     background-color: white
+    &_2
+      margin-top: 3px
+
+    &_3
+      margin-top: 3px
 
   &__area
     margin-left: 20px

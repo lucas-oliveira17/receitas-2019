@@ -2,7 +2,7 @@
     <div class="start">
     <div class="left">
       <div class="logo">
-        <ReditusLogo />
+        <ReditusLogo logo-background-color="white" color="#a00101"/>
       </div>
       <span class="left__message">{{ leftMessage }}<span class="message__type">|</span></span>
     </div>
@@ -84,7 +84,7 @@ $reditus-lightred: #ce0404
   &__message
     text-align: left
     color: #F0F0F0
-    font-family: 'Lato'
+    font-family: 'Roboto'
     font-weight: bold
     font-size: 5vw
     margin-left: 20px
