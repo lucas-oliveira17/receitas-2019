@@ -2,11 +2,11 @@
     <div class="start">
     <div class="left">
       <div class="logo">
-        <ReditusLogo logo-background-color="white" color="#a00101"/>
+        <reditus-logo logo-background-color="white" color="#a00101"/>
       </div>
       <span class="left__message">{{ leftMessage }}<span class="message__type">|</span></span>
     </div>
-    <SignIn />
+    <sign-in />
   </div>
 </template>
 
@@ -46,9 +46,6 @@ export default {
 <style lang="sass" scoped>
 $reditus-darkred: #a00101
 $reditus-lightred: #ce0404
-
-.logo
-  margin-left: 20px
 
 .reditus
   &__logo

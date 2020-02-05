@@ -4,25 +4,25 @@
         <span class="right__message right__message_signin">Sign in</span>
         <span class="right__message right__message_signup">Don't have an account? <a href="" class="signup__link">Create one</a></span>
       </div>
-      <form class="right__login" action="/Home">
+      <form class="right__login" id="LoginForm">
         <div class="login__field login__field_email">
           <label for="login__input_email" class="login__label login__label_email">E-mail</label>
-          <input type="text" placeholder="Your e-mail" class="login__input login__input_email" pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*$" title="The e-mail must be like example@example.com" required>
+          <input type="text" placeholder="Your e-mail" id="Email" data-value-missing="Translate('Required')" class="login__input login__input_email" pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*$" title="The e-mail must be like example@example.com" required>
         </div>
         <div class="login__field login__field_password">
           <label for="" class="login__label login__label_password">Password</label>
-          <input type="password" placeholder="Your password" class="login__input login__input_password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" minlength="8" title="Please include at least 1 uppercase character, 1 lowercase character, 1 number and 8 characters." required>
+          <input type="password" placeholder="Your password" id="Password" class="login__input login__input_password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" minlength="8" title="Please include at least 1 uppercase character, 1 lowercase character, 1 number and 8 characters." required>
         </div>
         <div class="login__options">
           <div class="option__remeberme">
-            <ReditusCheckbox/>
+            <reditus-checkbox/>
             <label for="horns" class="remeberme__label">Remember me</label>
           </div>
           <div class="option_forgot">
             <a href="" class="forgot__link">Forgot password?</a>
           </div>
         </div>
-        <input type="submit" class="login__button" value="Sign in" action="/home">
+        <button type="button" class="login__button" @click="submit('/home')">Sign in</button>
       </form>
       <div class="other__area">
         <span class="other__enterwith"><span class="enterwith__text">or enter with</span></span>
@@ -39,14 +39,40 @@
 import ReditusCheckbox from '../tools/ReditusCheckbox'
 
 export default {
-  name: 'Sign In',
+  name: 'SignIn',
   components: {
     ReditusCheckbox
+  },
+  methods: {
+    submit (link) {
+      const form = document.getElementById('LoginForm')
+      if (form.checkValidity()) {
+        form.submit()
+        window.location.href = link
+      } else {
+        document.querySelectorAll('.error__info').forEach(el => el.remove())
+
+        form.querySelectorAll('input[type=text], input[type=password]').forEach(el => {
+          const errorInfo = document.createElement('div')
+          errorInfo.innerHTML = `<span class="error__info">${el.validationMessage}</span>`
+          el.parentNode.append(errorInfo)
+        })
+      }
+    }
   }
 }
 </script>
 
 <style lang="sass">
+$reditus-darkred: #a00101
+$reditus-lightred: #ce0404
+
+.error__info
+  font-family: 'Roboto'
+  font-size: 13px
+  font-weight: bold
+  color: red
+
 .enterwith
   &__text
     display: inline
@@ -148,7 +174,7 @@ export default {
 
   &__label
     font-family: 'Roboto';
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     font-size: 14px;
     font-weight: bold
 
@@ -174,10 +200,10 @@ export default {
       color: #a5a5a5
 
     &:hover
-      border: 2px solid #ce0404
+      border: 2px solid $reditus-darkred
 
     &:focus
-      border: 2px solid #ce0404
+      border: 2px solid $reditus-darkred
 
 .option
   &__remeberme
