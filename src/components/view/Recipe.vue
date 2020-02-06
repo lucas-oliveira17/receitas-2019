@@ -23,17 +23,7 @@ export default {
     }
   },
   props: {
-    recipe: {
-      title: String,
-      type: String,
-      author: String,
-      ingredients: Array,
-      prepareMode: String,
-      duration: Number,
-      likes: Number,
-      dislikes: Number,
-      images: Array
-    }
+    recipe: Object
   },
   name: 'Recipe'
 }

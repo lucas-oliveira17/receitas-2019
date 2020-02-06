@@ -93,7 +93,7 @@ $reditus-lightred: #ce0404
 
 .navbar
   height: 100%
-  width: 220px;
+  width: 280px;
   background: white
   display: flex
   flex-direction: column
@@ -162,6 +162,6 @@ $reditus-lightred: #ce0404
 
 .main
   height: 100%
-  width: calc(100% - 250px)
+  width: 100%
   background-color: #F0F0F0
 </style>
